@@ -1,0 +1,209 @@
+::ng-deep {
+
+    app-datetimepicker {
+      .container {
+        display: flex;
+        gap: 2rem;
+      }
+      .k-datepicker .k-input-button,
+      .k-datetimepicker .k-input-button {
+        order: -1;
+      }
+      .k-datepicker .k-input-inner,
+      .k-datetimepicker .k-input-inner {
+        order: 2;
+      }
+    }
+    .k-calendar-nav-today .k-button-text {
+      display: none !important;
+    }
+    .k-button:disabled,
+    .k-button.k-disabled {
+      font-weight: 700;
+      color: #5A6276;
+    }
+    .k-calendar-view .k-today {
+      font-weight: 500;
+    }
+    .k-calendar .k-calendar-td .k-link {
+      color: #26282e;
+    }
+    .k-calendar .k-calendar-td.k-today .k-link {
+      background: #F5F6F8;
+      color: #26282e;
+      border-radius: 999px;
+    }
+    .k-calendar .k-calendar-td.k-selected:not(.k-today) .k-link {
+      background: #008000;
+      color: #ffffff;
+      border-radius: 999px;
+      box-shadow: none;
+    }
+    .k-calendar .k-calendar-td.k-selected:not(.k-today) .k-link:hover {
+      background: #008000;
+      color: #ffffff;
+    }
+    .k-calendar .k-calendar-td:hover .k-link {
+      border-radius: 999px;
+      border: 1px solid #008000 !important;
+      background: #fff;
+    }
+    .k-calendar .k-calendar-td.k-selected:hover .k-link {
+      color: #26282e;
+      background-color: #F5F6F8;
+    }
+    .k-calendar .k-calendar-td.k-focus .k-link {
+      box-shadow: none;
+    }
+    .k-calendar-view {
+      min-height: auto !important;
+      height: auto !important;
+      overflow: visible !important;
+    }
+    .k-calendar-tbody .k-calendar-tr:not(:has(.k-link)) {
+      display: none !important;
+    }
+    .k-calendar-nav {
+      gap: 6px;
+      color: #959DB3;
+      margin-right: 20px;
+    }
+    .k-calendar-nav button {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    .all-day-check {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .time-control {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .custom-footer {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 12px 16px;
+      gap: 8px;
+      border-top: 1px solid #ddd;
+      .all-day-label {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        gap: 8px;
+        input[type='checkbox'] {
+          appearance: none;
+          width: 18px;
+          height: 18px;
+          border: 1px solid #999999;
+          border-radius: 50%;
+          cursor: pointer;
+          position: relative;
+        }
+        input[type='checkbox']:checked {
+          background-color: #5CB800;
+          border: 1px solid #008000;
+        }
+        input[type='checkbox']:checked::after {
+          content: '';
+          position: absolute;
+          top: -1px;
+          left: 3px;
+          width: 10px;
+          height: 10px;
+          color: #008000;
+          border-radius: 50%;
+        }
+      }
+      .am-pm-buttons {
+        display: flex;
+        gap: 8px;
+        margin-left: 20px;
+        .round-button {
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+          border: none;
+          background-color: #fff;
+          color: #008000;
+          cursor: pointer;
+          font-weight: 600;
+          text-align: center;
+          line-height: 1;
+          padding: 0;
+          &:hover{
+            background: #f5f5f5;
+          }
+        }
+        .round-button.active {
+          background-color: #008000;
+          color: #fff;
+        }
+        .round-button:disabled {
+          border-color: #ccc;
+          color: #aaa;
+          cursor: not-allowed;
+          background-color: #f5f5f5;
+        }
+      }
+      kendo-dropdownlist {
+        .k-dropdown-wrap {
+          border: 1px solid #008000;
+          border-radius: 4px;
+          padding: 0 8px;
+        }
+        .k-input-inner {
+          color: #26282e;
+          font-size: 14px;
+        }
+        .k-input-inner::placeholder {
+          color: #aaa;
+        }
+      }
+    }
+    .k-picker-solid{
+    background: #FFF;
+    color: #26282e;
+    width: 104px;
+    height: 26px;
+    &:hover{
+    color: #26282e;
+    background: #FFF;
+    }       
+    }
+    .k-list-item.k-selected{
+        color: #26282e;
+        background-color: #F5F6F8;
+    &:hover{
+        color: #26282e;
+        background-color: #F5F6F8;
+        filter: brightness(1.1);
+    }
+    }
+    .k-list-item.k-focus{
+    box-shadow: none;
+    }
+    .k-list-item:hover{
+    color: #26282e;
+    background-color: #F5F6F8;
+    }
+    .k-picker-solid:focus{
+        box-shadow: none;
+        border: 2px solid #36C8CF;
+    }
+    .k-dropdownlist .k-input-button .k-icon::before {
+      content: "\e015" !important;
+      font-family: "WebComponentsIcons";
+    }
+      .k-dropdownlist kendo-svgicon.k-svg-i-caret-alt-down > svg {
+        display: none !important;
+    }
+    .k-button-flat-primary{
+      color: #5A6276;
+      font-weight: 700;
+    }
+  }
+  

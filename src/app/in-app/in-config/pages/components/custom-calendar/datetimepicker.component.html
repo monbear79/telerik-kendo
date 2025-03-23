@@ -1,0 +1,115 @@
+<div class="container">
+  <div class="picker-wrapper">
+    <h1>Calendar</h1>
+    <kendo-datepicker
+      [(ngModel)]="dateOnlyValue"
+      (close)="onClose('DatePicker')"
+      (blur)="onBlur('DatePicker')"
+      (focus)="onFocus('DatePicker')"
+      (open)="onOpen('DatePicker')"
+      [footer]="false"
+      calendarType="classic"
+      [disabledDates]="disabledDates"
+      [showOtherMonthDays]="false"
+    >
+      <ng-template 
+        kendoCalendarHeaderTitleTemplate 
+        let-date 
+        let-activeView="activeView"
+      >
+        <span *ngIf="activeView === 'month'">
+          {{ date | monthFormat }}
+        </span>
+        <span *ngIf="activeView === 'year'">
+          {{ date | date:'yyyy' }}
+        </span>
+        <span *ngIf="activeView === 'decade'">
+          {{ getDecadeLabel(date) }}
+        </span>
+        <span *ngIf="activeView === 'century'">
+          {{ getCenturyLabel(date) }}
+        </span>
+      </ng-template>
+    </kendo-datepicker>
+  </div>
+
+  <div class="datetimepicker-wrapper">
+    <h1>Calendar & Time</h1>
+    <kendo-datepicker
+      [(ngModel)]="dateTimeValue"
+      [format]="allDay ? 'dd/MM/yyyy' : 'dd/MM/yyyy HH:mm'"
+      [calendarType]="'classic'"
+      [showOtherMonthDays]="false"
+      [disabledDates]="disabledDates"
+      [footer]="true"
+      (valueChange)="onDateTimeChange($event)"
+      (open)="onOpen('DatePicker2')"
+      (close)="onClose('DatePicker2')"
+      (focus)="onFocus('DatePicker2')"
+      (blur)="onBlur('DatePicker2')"
+    >
+      <ng-template 
+        kendoCalendarHeaderTitleTemplate 
+        let-date 
+        let-activeView="activeView"
+      >
+        <span *ngIf="activeView === 'month'">
+          {{ date | monthFormat }}
+        </span>
+        <span *ngIf="activeView === 'year'">
+          {{ date | date:'yyyy' }}
+        </span>
+        <span *ngIf="activeView === 'decade'">
+          {{ getDecadeLabel(date) }}
+        </span>
+        <span *ngIf="activeView === 'century'">
+          {{ getCenturyLabel(date) }}
+        </span>
+      </ng-template>
+      <ng-template kendoCalendarFooterTemplate>
+        <div class="custom-footer">
+          <label class="all-day-label">
+            <input type="checkbox" [(ngModel)]="allDay" (change)="onAllDayChange()" />
+            Cả ngày
+          </label>
+          <div class="time-control">
+            <kendo-dropdownlist
+              #timeDropdown="kendoDropDownList"
+              [data]="displayedTimeList"
+              [(ngModel)]="selectedTime"
+              [valuePrimitive]="false"
+              (valueChange)="onTimeDropdownChange($event)"
+              [disabled]="allDay"
+            >
+              <ng-template kendoDropDownListItemTemplate let-time>
+                {{ time | date:'HH:mm' }}
+              </ng-template>
+              <ng-template kendoDropDownListValueTemplate let-time>
+                {{ time | date:'HH:mm' }}
+              </ng-template>
+            </kendo-dropdownlist>
+
+            <div class="am-pm-buttons">
+              <button
+                class="round-button"
+                (click)="setAM()"
+                [disabled]="allDay"
+                [class.active]="isAM && !allDay"
+              >
+                AM
+              </button>
+              <button
+                class="round-button"
+                (click)="setPM()"
+                [disabled]="allDay"
+                [class.active]="!isAM && !allDay"
+              >
+                PM
+              </button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+    </kendo-datepicker>
+  </div>
+</div>
